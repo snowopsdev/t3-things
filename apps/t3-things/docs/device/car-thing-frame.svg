@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Car Thing device frame, drawn from scratch for these docs (not a Spotify asset).
+  The screen is a transparent window at x=176 y=193, 1600x960 (the 800x480
+  display at 2x), corner radius 22. The dial overlaps the screen's top-right
+  corner like it does on the hardware, so put the screenshot under this frame.
+  scripts/frame-screenshots.ts fills the #screen placeholder and renders PNGs;
+  the playable demo (demo.html) wires up the controls by their ids.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2394" height="1329" viewBox="0 0 2394 1329">
+  <defs>
+    <linearGradient id="shell" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#37383c"/>
+      <stop offset="0.5" stop-color="#232427"/>
+      <stop offset="1" stop-color="#161719"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#121214"/>
+      <stop offset="1" stop-color="#0a0a0b"/>
+    </linearGradient>
+    <linearGradient id="glare" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.06"/>
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="dialFill" cx="0.42" cy="0.36" r="0.75">
+      <stop offset="0" stop-color="#36373b"/>
+      <stop offset="0.7" stop-color="#232427"/>
+      <stop offset="1" stop-color="#18191b"/>
+    </radialGradient>
+    <linearGradient id="dialEdge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a4b50"/>
+      <stop offset="1" stop-color="#101112"/>
+    </linearGradient>
+    <radialGradient id="backFill" cx="0.5" cy="0.62" r="0.7">
+      <stop offset="0" stop-color="#2c2d30"/>
+      <stop offset="1" stop-color="#18191b"/>
+    </radialGradient>
+    <linearGradient id="key" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3b3c40"/>
+      <stop offset="1" stop-color="#1b1c1e"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="135%">
+      <feDropShadow dx="0" dy="28" stdDeviation="34" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+    <filter id="dialShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+    <mask id="window">
+      <rect width="2394" height="1329" fill="#fff"/>
+      <rect x="176" y="193" width="1600" height="960" rx="22" fill="#000"/>
+    </mask>
+    <clipPath id="screenClip">
+      <rect x="176" y="193" width="1600" height="960" rx="22"/>
+    </clipPath>
+  </defs>
+
+  <!-- Preset buttons 1-4 and the settings button on the top edge -->
+  <g fill="url(#key)">
+    <rect id="preset-1" x="300" y="84" width="170" height="30" rx="12"/>
+    <rect id="preset-2" x="712" y="84" width="170" height="30" rx="12"/>
+    <rect id="preset-3" x="1124" y="84" width="170" height="30" rx="12"/>
+    <rect id="preset-4" x="1536" y="84" width="170" height="30" rx="12"/>
+    <rect id="mode" x="1947" y="90" width="110" height="24" rx="10"/>
+  </g>
+
+  <!-- Shell and glass face, with the screen cut out -->
+  <g mask="url(#window)">
+    <rect x="100" y="100" width="2113" height="1129" rx="64" fill="url(#shell)" filter="url(#shadow)"/>
+    <rect x="110" y="110" width="2093" height="1109" rx="55" fill="url(#glass)"/>
+    <rect x="110.5" y="110.5" width="2092" height="1108" rx="55" fill="none" stroke="#000" stroke-opacity="0.6"/>
+  </g>
+  <rect x="100.5" y="100.5" width="2112" height="1128" rx="64" fill="none" stroke="#4b4c51" stroke-opacity="0.7"/>
+
+  <!-- Screenshot goes here -->
+  <g id="screen" clip-path="url(#screenClip)"/>
+
+  <!-- Light glare across the glass -->
+  <rect x="110" y="110" width="2093" height="1109" rx="55" fill="url(#glare)" pointer-events="none"/>
+
+  <!-- Back button -->
+  <g id="back">
+    <circle cx="1984" cy="1016" r="100" fill="url(#backFill)"/>
+    <circle cx="1984" cy="1016" r="99" fill="none" stroke="#000" stroke-opacity="0.7" stroke-width="2"/>
+    <circle cx="1984" cy="1018" r="100" fill="none" stroke="#fff" stroke-opacity="0.05" stroke-width="2"/>
+  </g>
+
+  <!-- Dial -->
+  <g id="dial">
+    <g filter="url(#dialShadow)">
+      <circle cx="1988" cy="511" r="306" fill="url(#dialEdge)"/>
+      <circle cx="1988" cy="511" r="292" fill="url(#dialFill)"/>
+    </g>
+    <circle cx="1988" cy="511" r="291" fill="none" stroke="#fff" stroke-opacity="0.04" stroke-width="2"/>
+  </g>
+</svg>

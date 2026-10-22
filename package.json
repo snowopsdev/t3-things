@@ -1,0 +1,28 @@
+{
+  "name": "t3-things",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "new": "bunx create-bridgething",
+    "dev": "bridgething-source run dev",
+    "dev:device": "bridgething-source run dev:device",
+    "build": "bridgething-source run build",
+    "push": "bridgething-source run push",
+    "share": "bridgething-source run share",
+    "check": "bridgething-source check",
+    "bump": "bridgething-source bump",
+    "shot": "bridgething-source shot",
+    "catalog": "bridgething-source catalog",
+    "publish": "bridgething-source publish",
+    "skills": "bridgething-source skills",
+    "format": "prettier --write \"*.json\" \"*.js\""
+  },
+  "devDependencies": {
+    "@bridgething/source": "^0.12.1",
+    "prettier": "^3.9.6",
+    "typescript": "^6.0.3"
+  }
+}

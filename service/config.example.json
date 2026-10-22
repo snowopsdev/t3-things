@@ -1,0 +1,7 @@
+{
+  "t3Hosts": [
+    { "name": "desktop", "url": "http://127.0.0.1:3773" },
+    { "name": "laptop", "url": "https://laptop.your-tailnet.ts.net:8443" }
+  ],
+  "codexSshHosts": ["laptop"]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "01a15ee4-b35b-7224-80d3-860509d6c9d5",
+  "name": "T3 Things",
+  "version": "0.1.0",
+  "description": "Claude and Codex plan usage plus live T3 Code threads, fed by your own status service over Tailscale.",
+  "icon": "icon.svg",
+  "settings": "settings.html",
+  "config": [
+    {
+      "type": "string",
+      "data": {
+        "key": "serviceUrl",
+        "label": "Status service URL (blank uses the built-in default)"
+      }
+    },
+    {
+      "type": "secret",
+      "data": {
+        "key": "token",
+        "label": "Status service token (blank uses the built-in default)"
+      }
+    },
+    {
+      "type": "boolean",
+      "data": {
+        "key": "alertAttention",
+        "label": "Alert when a thread needs approval or input",
+        "default": true
+      }
+    },
+    {
+      "type": "boolean",
+      "data": {
+        "key": "alertFinished",
+        "label": "Alert when a thread finishes or fails",
+        "default": true
+      }
+    },
+    {
+      "type": "boolean",
+      "data": {
+        "key": "alertBrighten",
+        "label": "Turn the screen to full brightness for alerts",
+        "default": true
+      }
+    }
+  ],
+  "permissions": [
+    "net.fetch"
+  ],
+  "art": {
+    "heroPx": 248,
+    "thumbPx": 96
+  }
+}

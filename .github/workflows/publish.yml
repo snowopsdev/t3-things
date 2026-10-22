@@ -1,0 +1,51 @@
+name: publish
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: .bun-version
+
+      - run: bun install --frozen-lockfile
+
+      - name: identify the publisher
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: build every unpublished version and push the catalog
+        run: bun run publish
+
+      - name: build the playable demo
+        working-directory: apps/t3-things
+        run: bun run build:demo
+
+      - name: put the demo on the site under demo/
+        run: |
+          git fetch --depth 1 origin gh-pages
+          git worktree add --detach "$RUNNER_TEMP/site" FETCH_HEAD
+          rm -rf "$RUNNER_TEMP/site/demo"
+          cp -r apps/t3-things/dist-demo "$RUNNER_TEMP/site/demo"
+          # The site root only holds the catalog, so send visitors to the demo.
+          printf '<!doctype html><meta http-equiv="refresh" content="0; url=demo/"><a href="demo/">T3 Things demo</a>\n' > "$RUNNER_TEMP/site/index.html"
+          cd "$RUNNER_TEMP/site"
+          git add --all demo index.html
+          if git diff --cached --quiet; then echo "demo unchanged"; exit 0; fi
+          git commit -m "demo: update from ${GITHUB_SHA::8}"
+          git push origin HEAD:refs/heads/gh-pages
