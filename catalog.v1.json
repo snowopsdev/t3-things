@@ -1,0 +1,52 @@
+{
+  "$schema": "https://apps.bridgething.com/schemas/catalog/v1.json",
+  "schema": "catalog.v1",
+  "updated_at": "2026-10-22T20:54:33.231Z",
+  "repo": {
+    "name": "t3-things",
+    "description": "T3 Things: Claude and Codex usage and T3 Code threads on a Spotify Car Thing",
+    "homepage": "https://github.com/snowopsdev/t3-things",
+    "icon": null
+  },
+  "apps": [
+    {
+      "id": "01a15ee4-b35b-7224-80d3-860509d6c9d5",
+      "name": "T3 Things",
+      "description": "Claude and Codex plan usage plus live T3 Code threads, fed by your own status service over Tailscale.",
+      "author": "Angel Nieves",
+      "icon": "https://snowopsdev.github.io/t3-things/icons/01a15ee4-b35b-7224-80d3-860509d6c9d5.svg",
+      "screenshots": [
+        "https://snowopsdev.github.io/t3-things/screenshots/01a15ee4-b35b-7224-80d3-860509d6c9d5/1-dashboard.png",
+        "https://snowopsdev.github.io/t3-things/screenshots/01a15ee4-b35b-7224-80d3-860509d6c9d5/2-alert-approval.png",
+        "https://snowopsdev.github.io/t3-things/screenshots/01a15ee4-b35b-7224-80d3-860509d6c9d5/3-attention.png",
+        "https://snowopsdev.github.io/t3-things/screenshots/01a15ee4-b35b-7224-80d3-860509d6c9d5/4-working.png",
+        "https://snowopsdev.github.io/t3-things/screenshots/01a15ee4-b35b-7224-80d3-860509d6c9d5/5-alert-several.png",
+        "https://snowopsdev.github.io/t3-things/screenshots/01a15ee4-b35b-7224-80d3-860509d6c9d5/6-settled.png"
+      ],
+      "homepage": "https://github.com/snowopsdev/t3-things",
+      "source": "https://github.com/snowopsdev/t3-things",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "released_at": "2026-10-22T20:54:33.226Z",
+          "download": {
+            "url": "https://snowopsdev.github.io/t3-things/r/01a15ee4-b35b-7224-80d3-860509d6c9d5/0.1.0.zip",
+            "size": 912878,
+            "sha256": "2f9143f3dee3ee625804594f36fc21aeb2878c349e98a057b4121850b03e32d0"
+          },
+          "settings": {
+            "url": "https://snowopsdev.github.io/t3-things/s/01a15ee4-b35b-7224-80d3-860509d6c9d5/0.1.0.html",
+            "size": 28484,
+            "sha256": "11e5a35c293a0c6282e262d4687eccdaafcbb3ab97b91846f4f1a16f762ddb9c"
+          },
+          "permissions": [
+            "net.fetch"
+          ],
+          "min_libbridgething_version": "0.12.1",
+          "changelog": "First release."
+        }
+      ]
+    }
+  ],
+  "recommended_sources": []
+}
