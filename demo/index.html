@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0c0e" />
+    <title>T3 Things · playable demo</title>
+    <link rel="icon" href="./icon.svg" />
+    <script type="module" crossorigin src="./assets/demo-BYYurQO4.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-P2Xu9kJm.js">
+    <link rel="stylesheet" crossorigin href="./assets/demo-DmHPibuE.css">
+  </head>
+  <body>
+    <header>
+      <img src="./icon.svg" alt="" width="48" height="48" />
+      <div>
+        <h1>T3 Things</h1>
+        <p>Claude and Codex usage and your T3 Code threads on a Spotify Car Thing, with an alert when a thread needs you.</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="stage">
+        <div class="labels" aria-hidden="true">
+          <span style="--x: 385">1<i> · Attention</i></span>
+          <span style="--x: 797">2<i> · Working</i></span>
+          <span style="--x: 1209">3<i> · Snoozed</i></span>
+          <span style="--x: 1621">4<i> · Settled</i></span>
+          <span style="--x: 2002">Mode</span>
+        </div>
+        <div class="device" id="device">
+          <iframe id="screen" title="T3 Things running in demo mode" tabindex="-1"></iframe>
+        </div>
+      </div>
+
+      <p class="caption" id="caption" aria-live="polite">Loading…</p>
+
+      <div class="controls">
+        <button id="tour" class="primary" type="button">Pause tour</button>
+        <button id="next" type="button" title="Play the next scripted thread change">Next event</button>
+        <button id="reset" type="button">Reset</button>
+        <span class="sep"></span>
+        <span class="label">Test alert</span>
+        <button data-alert="approval" type="button">Approval</button>
+        <button data-alert="input" type="button">Input</button>
+        <button data-alert="done" type="button">Finished</button>
+        <button data-alert="failed" type="button">Failed</button>
+      </div>
+
+      <p class="keys">
+        Click the hardware buttons or use the keyboard: <kbd>1</kbd>–<kbd>4</kbd> presets, <kbd>Esc</kbd> back,
+        <kbd>Enter</kbd> press the dial. Scroll over the dial to turn it. Tap the screen to dismiss an alert.
+      </p>
+    </main>
+
+    <footer>
+      All data here is made up. Car Thing is a Spotify product; this project isn't affiliated with Spotify, and the device frame is
+      an original drawing.
+    </footer>
+
+  </body>
+</html>
