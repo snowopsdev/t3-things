@@ -22,7 +22,7 @@
 T3 Things turns a Car Thing running [bridgething](https://bridgething.com) into a small desk display for coding agents. A status service on your computer collects what's going on, and the Car Thing shows it:
 
 - **Usage.** Claude and Codex 5-hour and weekly windows, with how much is used and when each resets.
-- **Threads.** Your T3 Code threads from every machine you run it on, laid out like the T3 sidebar: pinned and active threads up front, and Attention, Working, Snoozed, and Settled lists one button away.
+- **Threads.** Your [T3 Code](https://github.com/pingdotgg/t3code) threads from every machine you run it on, laid out like the T3 sidebar: pinned and active threads up front, and Attention, Working, Snoozed, and Settled lists one button away.
 - **Alerts.** When a thread stops for approval or input, finishes, or fails, the screen flashes in that state's color and can jump to full brightness. Alerts that land together stack up. Any button clears them.
 
 All the screenshots, the GIF, and the demo use made-up data.
@@ -124,7 +124,7 @@ service/        the status service, a systemd unit, and an example config
 
 ## Credits
 
-Built on [bridgething](https://bridgething.com), which makes the Car Thing run web apps again. Fonts are Inter and Outfit, under the SIL Open Font License.
+Built on [bridgething](https://bridgething.com), which makes the Car Thing run web apps again. Thanks to [T3 Code](https://github.com/pingdotgg/t3code) by [Ping](https://github.com/pingdotgg), the app whose threads this mirrors: the thread states and the live stream come straight from it, and its sidebar is the model for the threads view. Fonts are Inter and Outfit, under the SIL Open Font License.
 
 T3 Things isn't affiliated with Spotify, Anthropic, OpenAI, or the makers of T3 Code. Car Thing is a Spotify product, and the device frame in these docs is an original drawing. Claude's usage numbers come from an endpoint Claude Code uses that isn't publicly documented, so that part may break without notice.
 
