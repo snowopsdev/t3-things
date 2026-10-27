@@ -13,6 +13,7 @@
 
 import { createServer } from 'node:http';
 import { execFile } from 'node:child_process';
+import { timingSafeEqual } from 'node:crypto';
 import { mkdir, open, readFile, readdir, stat, writeFile } from 'node:fs/promises';
 import { homedir } from 'node:os';
 import { join } from 'node:path';
@@ -40,6 +41,9 @@ const DEFAULTS = {
 
 const config = { ...DEFAULTS, ...(await readJson(join(CONFIG_DIR, 'config.json')).catch(() => ({}))) };
 const displayToken = (await readFile(join(CONFIG_DIR, 'display.token'), 'utf8')).trim();
+// an empty token would let any `Authorization: Bearer ` request through.
+if (displayToken.length < 16) throw new Error(`${join(CONFIG_DIR, 'display.token')} must hold at least 16 characters`);
+const displayTokenBytes = Buffer.from(displayToken);
 
 const state = {
   t3: Object.fromEntries(config.t3Hosts.map(h => [h.name, { ok: false, error: 'not polled yet', threads: [] }])),
@@ -493,7 +497,9 @@ function statusDocument() {
 function authorized(req, url) {
   const header = req.headers.authorization ?? '';
   const given = header.startsWith('Bearer ') ? header.slice(7) : url.searchParams.get('token');
-  return given === displayToken;
+  if (typeof given !== 'string') return false;
+  const bytes = Buffer.from(given);
+  return bytes.length === displayTokenBytes.length && timingSafeEqual(bytes, displayTokenBytes);
 }
 
 function handler(req, res) {
