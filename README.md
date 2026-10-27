@@ -59,7 +59,7 @@ You need a Car Thing running bridgething, paired with the bridgething companion 
 
 ```sh
 git clone https://github.com/snowopsdev/t3-things && cd t3-things
-mkdir -p ~/.config/agent-status
+mkdir -p ~/.config/agent-status && chmod 700 ~/.config/agent-status
 
 # The token the Car Thing sends. Any long random string works.
 openssl rand -hex 24 > ~/.config/agent-status/display.token
@@ -127,6 +127,10 @@ service/        the status service, a systemd unit, and an example config
 Built on [bridgething](https://bridgething.com), which makes the Car Thing run web apps again. Thanks to [T3 Code](https://github.com/pingdotgg/t3code) by [Ping](https://github.com/pingdotgg), the app whose threads this mirrors: the thread states and the live stream come straight from it, and its sidebar is the model for the threads view. Fonts are Inter and Outfit, under the SIL Open Font License.
 
 T3 Things isn't affiliated with Spotify, Anthropic, OpenAI, or the makers of T3 Code. Car Thing is a Spotify product, and the device frame in these docs is an original drawing. Claude's usage numbers come from an endpoint Claude Code uses that isn't publicly documented, so that part may break without notice.
+
+## Security
+
+The service sits next to your Claude, Codex, and T3 Code credentials. See [SECURITY.md](SECURITY.md) for how to run it safely and how to report a problem.
 
 ## License
 
